@@ -1,0 +1,9 @@
+node_modules
+dist
+dist-verify*
+dist-ssr
+shot.cjs
+*.log
+.DS_Store
+.env
+.env.*

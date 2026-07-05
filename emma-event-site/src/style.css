@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Noto Serif Armenian", ui-serif, Georgia, serif;
+  --font-sans: "Rubik", ui-sans-serif, system-ui, sans-serif;
+
+  --color-cream: #fffaf2;
+  --color-cream-dark: #f8ecda;
+  --color-beige: #f3e4cd;
+  --color-beige-dark: #e8cd9f;
+  --color-gold: #dba748;
+  --color-gold-light: #f3cd7e;
+  --color-gold-dark: #b3781a;
+  --color-sky: #5fc2e8;
+  --color-sky-dark: #1f8ec4;
+  --color-pink: #f596bf;
+  --color-pink-dark: #dd4d90;
+  --color-sunset: #ff7a45;
+  --color-sunset-dark: #e8431c;
+  --color-ink: #2c241c;
+  --color-ink-soft: #5b4f42;
+
+  --shadow-soft: 0 20px 60px -20px rgb(44 36 28 / 0.3);
+  --shadow-glass: 0 8px 32px rgb(44 36 28 / 0.14);
+  --shadow-glow: 0 0 45px -8px rgb(255 122 69 / 0.55);
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-slow: float 9s ease-in-out infinite;
+  --animate-shimmer: shimmer 3.5s linear infinite;
+  --animate-glow-pulse: glow-pulse 2.6s ease-in-out infinite;
+  --animate-spin-slow: spin 14s linear infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-18px) rotate(4deg); }
+  }
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  @keyframes glow-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgb(255 122 69 / 0.45), var(--shadow-soft); }
+    50% { box-shadow: 0 0 0 14px rgb(255 122 69 / 0), var(--shadow-soft); }
+  }
+}
+
+@layer base {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-gold) transparent;
+  }
+
+  html {
+    background: var(--color-cream);
+    color: var(--color-ink);
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background: var(--color-cream);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: var(--color-pink);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold-dark);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .glass {
+    background: rgb(255 255 255 / 0.55);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    border: 1px solid rgb(255 255 255 / 0.6);
+  }
+
+  .glass-dark {
+    background: rgb(44 36 28 / 0.35);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    border: 1px solid rgb(255 255 255 / 0.15);
+  }
+
+  .text-gradient-sunset {
+    background-image: linear-gradient(100deg, var(--color-gold-dark), var(--color-sunset), var(--color-pink-dark), var(--color-gold-dark));
+    background-size: 250% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 7s linear infinite;
+  }
+
+  .btn-glow {
+    animation: glow-pulse 2.6s ease-in-out infinite;
+  }
+
+  .reveal-up {
+    opacity: 0;
+    transform: translateY(48px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
