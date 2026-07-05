@@ -28,13 +28,13 @@ export interface GalleryItem {
 
 export const gallery: GalleryItem[] = [
   {
-    id: 'photo-2',
+    id: 'photo-5',
     type: 'image',
-    src: '/gallery/images/SaveClip.App_522806850_17848232796524747_553465749492763806_n.jpg',
-    thumb: '/gallery/images/thumbs/SaveClip.App_522806850_17848232796524747_553465749492763806_n.jpg',
-    width: 1440,
-    height: 958,
-    alt: 'Ընտանիքի ու ընկերների հետ միասին',
+    src: '/gallery/images/SaveClip.App_710555590_17891309676524747_7441923742614933082_n.jpg',
+    thumb: '/gallery/images/thumbs/SaveClip.App_710555590_17891309676524747_7441923742614933082_n.jpg',
+    width: 1600,
+    height: 2000,
+    alt: 'Հիշարժան պահ տոնից',
   },
   {
     id: 'photo-3',
@@ -64,13 +64,13 @@ export const gallery: GalleryItem[] = [
     alt: 'Անմոռանալի հուշեր',
   },
   {
-    id: 'photo-5',
+    id: 'photo-2',
     type: 'image',
-    src: '/gallery/images/SaveClip.App_710555590_17891309676524747_7441923742614933082_n.jpg',
-    thumb: '/gallery/images/thumbs/SaveClip.App_710555590_17891309676524747_7441923742614933082_n.jpg',
-    width: 1600,
-    height: 2000,
-    alt: 'Հիշարժան պահ տոնից',
+    src: '/gallery/images/SaveClip.App_522806850_17848232796524747_553465749492763806_n.jpg',
+    thumb: '/gallery/images/thumbs/SaveClip.App_522806850_17848232796524747_553465749492763806_n.jpg',
+    width: 1440,
+    height: 958,
+    alt: 'Ընտանիքի ու ընկերների հետ միասին',
   },
   {
     id: 'photo-6',
