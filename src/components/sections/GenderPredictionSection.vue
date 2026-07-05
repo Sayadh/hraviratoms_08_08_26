@@ -8,7 +8,7 @@ import SectionHeading from '@/components/ui/SectionHeading.vue'
 const sectionRef = ref<HTMLElement | null>(null)
 useScrollReveal(sectionRef)
 
-const { state, boyPercent, girlPercent, vote } = useGenderVotes()
+const { state, vote } = useGenderVotes()
 
 function onVote(choice: 'boy' | 'girl', e: MouseEvent) {
   vote(choice)
@@ -36,7 +36,7 @@ function onVote(choice: 'boy' | 'girl', e: MouseEvent) {
             <span class="absolute inset-0 origin-bottom scale-y-0 bg-sky-dark/15 transition-transform duration-500 group-hover:scale-y-100" />
             <span class="relative text-6xl transition-transform duration-300 group-hover:scale-110 sm:text-7xl">💙</span>
             <span class="relative font-display text-2xl font-semibold text-ink sm:text-3xl">Թիմ Տղա</span>
-            <span class="relative font-display text-5xl font-bold tabular-nums text-sky-dark sm:text-6xl">{{ boyPercent }}%</span>
+            <span class="relative font-display text-5xl font-bold tabular-nums text-sky-dark sm:text-6xl">{{ 50 }}%</span>
             <span v-if="state.myVote === 'boy'" class="relative rounded-full bg-white/70 px-4 py-1 text-xs font-bold uppercase tracking-widest text-sky-dark">Քո Ընտրությունը ✓</span>
           </button>
 
@@ -48,14 +48,14 @@ function onVote(choice: 'boy' | 'girl', e: MouseEvent) {
             <span class="absolute inset-0 origin-bottom scale-y-0 bg-pink-dark/15 transition-transform duration-500 group-hover:scale-y-100" />
             <span class="relative text-6xl transition-transform duration-300 group-hover:scale-110 sm:text-7xl">🩷</span>
             <span class="relative font-display text-2xl font-semibold text-ink sm:text-3xl">Թիմ Աղջիկ</span>
-            <span class="relative font-display text-5xl font-bold tabular-nums text-pink-dark sm:text-6xl">{{ girlPercent }}%</span>
+            <span class="relative font-display text-5xl font-bold tabular-nums text-pink-dark sm:text-6xl">{{ 50 }}%</span>
             <span v-if="state.myVote === 'girl'" class="relative rounded-full bg-white/70 px-4 py-1 text-xs font-bold uppercase tracking-widest text-pink-dark">Քո Ընտրությունը ✓</span>
           </button>
         </div>
 
         <div class="flex h-3 w-full">
-          <div class="bg-sky-dark transition-all duration-700 ease-out" :style="{ width: boyPercent + '%' }" />
-          <div class="bg-pink-dark transition-all duration-700 ease-out" :style="{ width: girlPercent + '%' }" />
+          <div class="bg-sky-dark transition-all duration-700 ease-out" :style="{ width: 50 + '%' }" />
+          <div class="bg-pink-dark transition-all duration-700 ease-out" :style="{ width: 50 + '%' }" />
         </div>
       </div>
     </div>
