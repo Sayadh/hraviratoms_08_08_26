@@ -34,16 +34,16 @@ const padded = (n: number) => String(n).padStart(2, '0')
 </script>
 
 <template>
-  <div class="flex flex-col items-center gap-2 sm:gap-3">
-    <div style="perspective: 400px" class="h-16 w-16 sm:h-24 sm:w-24">
+  <div class="flex flex-col items-center gap-1.5 sm:gap-3">
+    <div style="perspective: 400px" class="h-12 w-12 shrink-0 sm:h-24 sm:w-24">
       <div
         ref="cardRef"
-        class="glass shadow-glass flex h-full w-full items-center justify-center rounded-2xl"
+        class="glass shadow-glass flex h-full w-full items-center justify-center rounded-xl sm:rounded-2xl"
         style="transform-style: preserve-3d"
       >
-        <span class="font-display text-2xl font-semibold text-ink sm:text-4xl tabular-nums">{{ padded(display) }}</span>
+        <span class="font-display text-lg font-semibold text-ink sm:text-4xl tabular-nums">{{ padded(display) }}</span>
       </div>
     </div>
-    <span class="text-xs font-semibold uppercase tracking-[0.2em] text-ink-soft sm:text-sm">{{ label }}</span>
+    <span class="text-[9px] font-semibold uppercase tracking-[0.1em] text-ink-soft sm:text-sm sm:tracking-[0.2em]">{{ label }}</span>
   </div>
 </template>

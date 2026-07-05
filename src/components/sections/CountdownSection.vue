@@ -15,7 +15,7 @@ useScrollReveal(sectionRef)
 <template>
   <section ref="sectionRef" class="relative overflow-hidden bg-gradient-to-br from-ink via-[#3a2e22] to-ink py-28 text-cream sm:py-32">
     <FloatingDecor variant="sunset" />
-    <div class="relative mx-auto max-w-4xl px-6 text-center">
+    <div class="relative mx-auto max-w-4xl px-4 text-center sm:px-6">
       <SectionHeading
         eyebrow="Հիշիր այս պահը"
         title="Հաշվարկը Սկսված է"
@@ -23,14 +23,14 @@ useScrollReveal(sectionRef)
         light
       />
 
-      <div data-reveal class="mt-14 flex items-center justify-center gap-4 sm:gap-8">
+      <div data-reveal class="mt-14 flex items-center justify-center gap-1.5 sm:gap-8">
         <FlipUnit :value="parts.days" label="Օր" />
-        <span class="font-display text-3xl text-gold-light sm:text-4xl">:</span>
+        <span class="font-display text-lg text-gold-light sm:text-4xl">:</span>
         <FlipUnit :value="parts.hours" label="Ժամ" />
-        <span class="font-display text-3xl text-gold-light sm:text-4xl">:</span>
+        <span class="font-display text-lg text-gold-light sm:text-4xl">:</span>
         <FlipUnit :value="parts.minutes" label="Րոպե" />
-        <span class="font-display text-3xl text-gold-light sm:text-4xl">:</span>
-        <FlipUnit :value="parts.seconds" label="Վայրկյան" />
+        <span class="font-display text-lg text-gold-light sm:text-4xl">:</span>
+        <FlipUnit :value="parts.seconds" label="Վրկ" />
       </div>
     </div>
   </section>
