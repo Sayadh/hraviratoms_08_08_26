@@ -2,6 +2,9 @@
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { scrollToId } from '@/composables/useLenis'
 
+// "Հաստատել" (RSVP) is intentionally not in this list — it already has its
+// own dedicated CTA button (desktop: top-right button, mobile: bottom of the
+// dropdown), so it doesn't need to also appear as a plain nav link.
 const links = [
   { id: 'home', label: 'Գլխավոր' },
   { id: 'about', label: 'Մեր Մասին' },
@@ -9,7 +12,6 @@ const links = [
   { id: 'gallery', label: 'Պատկերասրահ' },
   { id: 'games', label: 'Խաղեր' },
   { id: 'location', label: 'Վայրը' },
-  { id: 'rsvp', label: 'Հաստատել' },
 ]
 
 const scrolled = ref(false)
@@ -86,6 +88,12 @@ function go(id: string) {
           @click="go(link.id)"
         >
           {{ link.label }}
+        </button>
+        <button
+          class="mt-1 rounded-2xl bg-gradient-to-r from-gold-dark to-sunset px-4 py-3 text-center text-base font-semibold text-cream shadow-glass transition-transform active:scale-95"
+          @click="go('rsvp')"
+        >
+          Հաստատել
         </button>
       </nav>
     </Transition>

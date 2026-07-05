@@ -17,24 +17,31 @@ withDefaults(
       v-if="eyebrow"
       data-reveal
       :class="[
-        'mb-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em]',
-        light ? 'text-gold-light' : 'text-gold-dark',
+        'shadow-glass mb-5 inline-flex items-center gap-2 rounded-full px-5 py-2 text-xs font-bold uppercase tracking-[0.3em] backdrop-blur',
+        light ? 'bg-cream/10 text-gold-light' : 'bg-white/50 text-gold-dark',
       ]"
     >
-      <span class="h-px w-6" :class="light ? 'bg-gold-light' : 'bg-gold-dark'" />
+      <span class="h-1.5 w-1.5 rounded-full" :class="light ? 'bg-gold-light' : 'bg-gold-dark'" />
       {{ eyebrow }}
-      <span v-if="align === 'center'" class="h-px w-6" :class="light ? 'bg-gold-light' : 'bg-gold-dark'" />
     </p>
+
     <h2
       data-reveal
       :class="[
-        'text-4xl sm:text-5xl font-medium leading-[1.1]',
+        'text-4xl font-medium leading-[1.12] tracking-tight sm:text-5xl',
         light ? 'text-cream' : 'text-ink',
       ]"
     >
       {{ title }}
     </h2>
-    <p v-if="subtitle" data-reveal :class="['mt-5 text-lg leading-relaxed', light ? 'text-cream/80' : 'text-ink-soft']">
+
+    <div
+      data-reveal
+      class="mt-5 h-1 w-16 rounded-full bg-gradient-to-r from-gold-dark via-sunset to-pink-dark"
+      :class="align === 'center' ? 'mx-auto' : ''"
+    />
+
+    <p v-if="subtitle" data-reveal :class="['mt-6 text-lg leading-relaxed', light ? 'text-cream/80' : 'text-ink-soft']">
       {{ subtitle }}
     </p>
   </div>
