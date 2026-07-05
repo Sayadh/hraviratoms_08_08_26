@@ -14,10 +14,6 @@ const attendingLabel: Record<string, string> = {
   no: 'Ոչ',
 }
 
-function escapeMarkdown(value: string): string {
-  return value.replace(/[_*[\]()~`>#+\-=|{}.!]/g, '\\$&')
-}
-
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {
     res.status(405).json({ ok: false, error: 'Method not allowed' })
@@ -45,14 +41,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return
   }
 
+  // Plain text on purpose — no parse_mode. Guest-entered names/comments can
+  // contain any character (parentheses, dots, dashes, etc.), and Telegram's
+  // MarkdownV2 rejects the whole message if a single reserved character isn't
+  // escaped exactly right. Plain text has no such failure mode.
   const lines = [
-    '🎉 *Նոր հաստատում (RSVP)*',
-    `👤 *Անուն.* ${escapeMarkdown(fullName)}`,
-    `👥 *Հյուրերի քանակ.* ${guests}`,
-    `📞 *Հեռախոս.* ${escapeMarkdown(phone)}`,
-    `✅ *Կմասնակցի.* ${escapeMarkdown(attendingLabel[attending] ?? attending)}`,
+    '🎉 Նոր հաստատում — RSVP',
+    `👤 Անուն: ${fullName}`,
+    `👥 Հյուրերի քանակ: ${guests}`,
+    `📞 Հեռախոս: ${phone}`,
+    `✅ Կմասնակցի: ${attendingLabel[attending] ?? attending}`,
   ]
-  if (comments) lines.push(`💬 *Մեկնաբանություն.* ${escapeMarkdown(comments)}`)
+  if (comments) lines.push(`💬 Մեկնաբանություն: ${comments}`)
 
   try {
     const tgRes = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
@@ -61,7 +61,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       body: JSON.stringify({
         chat_id: chatId,
         text: lines.join('\n'),
-        parse_mode: 'MarkdownV2',
       }),
     })
 
