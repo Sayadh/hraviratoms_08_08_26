@@ -28,15 +28,6 @@ export interface GalleryItem {
 
 export const gallery: GalleryItem[] = [
   {
-    id: 'photo-1',
-    type: 'image',
-    src: '/gallery/images/SaveClip.App_522744584_17848233765524747_3589440605587817317_n.jpg',
-    thumb: '/gallery/images/thumbs/SaveClip.App_522744584_17848233765524747_3589440605587817317_n.jpg',
-    width: 1440,
-    height: 957,
-    alt: 'Հիշարժան պահ տոնակատարությունից',
-  },
-  {
     id: 'photo-2',
     type: 'image',
     src: '/gallery/images/SaveClip.App_522806850_17848232796524747_553465749492763806_n.jpg',
