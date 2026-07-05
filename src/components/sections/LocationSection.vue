@@ -9,7 +9,7 @@ const sectionRef = ref<HTMLElement | null>(null)
 useScrollReveal(sectionRef)
 
 const info = [
-  { icon: 'pin', title: 'Ժամանում', text: 'Խնդրում ենք ժամանել 10:15–10:30-ի միջև, որպեսզի բոլորս միասին սկսենք։' },
+  { icon: 'pin', title: 'Ժամանում', text: 'Խնդրում ենք ժամանել 10:30–11:00-ի միջև, որպեսզի բոլորս միասին սկսենք։' },
   { icon: 'swim', title: 'Չմոռանաս', text: 'Բեր քո լողազգեստը՝ ավազանը բաց է ամբողջ կեսօրից հետո։' },
 ]
 </script>
